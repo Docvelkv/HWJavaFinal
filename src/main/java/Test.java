@@ -17,6 +17,8 @@ public class Test {
         System.out.println(emp2.toString());
         System.out.println(emp2.hashCode());
         System.out.printf("Сотрудники эквивалентны? - %s\n", emp1.equals(emp2));
+        System.out.printf("Возраст Иванова %d лет. Возраст Сидорова %d лет.\t",
+                emp1.ageEmployee(), emp2.ageEmployee());
         System.out.printf("Иванов старше чем Сидоров - %s\n", emp1.olderThan(emp2));
         emp1.upgrade(5);
         emp2.upgrade(15);

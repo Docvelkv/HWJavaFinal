@@ -1,7 +1,7 @@
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.Objects;
 
 class Employee {
 
@@ -128,10 +128,27 @@ class Employee {
                 ", " + getPosition() + ", " + getSalary() + "]";
     }
 
-    public boolean olderThan(Employee e) {
-        return dateOfBirth.isBefore(e.dateOfBirth);
+    /**
+     * Определяет возраст сотрудника
+     * @return количество лет
+     */
+    public int ageEmployee() {
+        return Period.between(this.dateOfBirth, LocalDate.now()).getYears();
     }
 
+    /**
+     * Проверяет - текущий сотрудник старше чем тот, которого передали в метод.
+     * @param emp сотрудник
+     * @return да или нет
+     */
+    public boolean olderThan(Employee emp) {
+        return dateOfBirth.isBefore(emp.dateOfBirth);
+    }
+
+    /**
+     * Увеличивает заработную плату сотруднику
+     * @param salary добавка в тысячах единиц
+     */
     public void upgrade(double salary) {
         this.setSalary(this.salary + salary);
     }
